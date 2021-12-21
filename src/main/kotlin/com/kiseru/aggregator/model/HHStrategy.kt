@@ -4,7 +4,9 @@ import org.jsoup.HttpStatusException
 import org.jsoup.Jsoup
 
 class HHStrategy : Strategy {
-    private val URL_FORMAT = "https://hh.ru/search/vacancy?text=%s&page=%d"
+    companion object {
+        private const val URL_FORMAT = "https://hh.ru/search/vacancy?text=%s&page=%d"
+    }
 
     override fun getVacancies(searchString: String): List<Vacancy> {
         val vacancies = ArrayList<Vacancy>()
