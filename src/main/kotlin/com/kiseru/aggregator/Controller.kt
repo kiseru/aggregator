@@ -1,16 +1,9 @@
 package com.kiseru.aggregator
 
-import com.kiseru.aggregator.model.Provider
+import com.kiseru.aggregator.model.Model
 
-class Controller(private vararg val providers: Provider) {
-    override fun toString(): String {
-        return "Controller(providers=${providers.contentToString()})"
-    }
-
-    fun scan() {
-        providers
-            .asSequence()
-            .flatMap { it.getVacancies("java") }
-            .forEach(::println)
+class Controller(private val model: Model) {
+    fun onCitySelect() {
+        model.selectCity("Odessa")
     }
 }
